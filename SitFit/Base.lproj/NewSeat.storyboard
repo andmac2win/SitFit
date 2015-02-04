@@ -16,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eZB-mU-WA8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="287"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="287" id="6Ax-Mc-stf"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3v-tq-9te">
                                 <rect key="frame" x="170" y="508" width="130" height="40"/>
                                 <color key="backgroundColor" red="0.081940099896818275" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,22 +56,42 @@
                                     <action selector="cancelSeat:" destination="dal-5a-9le" eventType="touchUpInside" id="ygT-GN-iAq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN5-Vb-ICJ">
+                                <rect key="frame" x="16" y="240" width="288" height="22"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="HJb-hL-e6V"/>
+                                </constraints>
+                                <state key="normal" title="Take Picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePicture:" destination="dal-5a-9le" eventType="touchUpInside" id="iAL-An-jF2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eZB-mU-WA8" firstAttribute="top" secondItem="xdC-Zx-65Y" secondAttribute="top" id="DG1-4K-uaj"/>
                             <constraint firstItem="Y3v-tq-9te" firstAttribute="width" secondItem="C8o-bQ-9Ia" secondAttribute="width" id="FT4-ga-EU3"/>
                             <constraint firstItem="Y3v-tq-9te" firstAttribute="leading" secondItem="C8o-bQ-9Ia" secondAttribute="trailing" constant="20" id="P5x-0L-QeJ"/>
+                            <constraint firstAttribute="trailing" secondItem="qN5-Vb-ICJ" secondAttribute="trailing" constant="16" id="PDR-4G-R93"/>
+                            <constraint firstAttribute="trailing" secondItem="eZB-mU-WA8" secondAttribute="trailing" id="QPr-GE-cLv"/>
+                            <constraint firstItem="qN5-Vb-ICJ" firstAttribute="leading" secondItem="xdC-Zx-65Y" secondAttribute="leading" constant="16" id="Qgx-xN-2YZ"/>
                             <constraint firstItem="MvO-5g-IJT" firstAttribute="leading" secondItem="xdC-Zx-65Y" secondAttribute="leading" constant="20" id="Qpp-gk-IKF"/>
                             <constraint firstItem="C8o-bQ-9Ia" firstAttribute="leading" secondItem="xdC-Zx-65Y" secondAttribute="leading" constant="20" id="TKy-Zt-gTa"/>
                             <constraint firstAttribute="trailing" secondItem="MvO-5g-IJT" secondAttribute="trailing" constant="20" id="ZWq-nQ-pUF"/>
+                            <constraint firstItem="qN5-Vb-ICJ" firstAttribute="top" secondItem="xdC-Zx-65Y" secondAttribute="top" constant="240" id="Zez-qA-XpO"/>
                             <constraint firstItem="seE-07-yiR" firstAttribute="top" secondItem="C8o-bQ-9Ia" secondAttribute="bottom" constant="20" id="cXf-jX-gDt"/>
                             <constraint firstItem="MvO-5g-IJT" firstAttribute="top" secondItem="xdC-Zx-65Y" secondAttribute="top" constant="20" id="i10-Se-qAU"/>
+                            <constraint firstItem="eZB-mU-WA8" firstAttribute="leading" secondItem="xdC-Zx-65Y" secondAttribute="leading" id="iqS-Bd-0W8"/>
                             <constraint firstItem="seE-07-yiR" firstAttribute="top" secondItem="Y3v-tq-9te" secondAttribute="bottom" constant="20" id="oeK-db-dTM"/>
                             <constraint firstAttribute="trailing" secondItem="Y3v-tq-9te" secondAttribute="trailing" constant="20" id="opd-Eq-Fay"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="seatImageView" destination="eZB-mU-WA8" id="78c-Es-zRW"/>
                         <outlet property="seatNameField" destination="MvO-5g-IJT" id="d24-Aa-BrK"/>
                     </connections>
                 </viewController>
@@ -78,7 +104,7 @@
             <objects>
                 <tableViewController id="14q-Hl-HrY" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="AAk-m4-VFX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -95,16 +121,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JKg-sN-g64"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cd6-2J-QQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1904" y="395"/>
+            <point key="canvasLocation" x="1142" y="395"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rWo-08-306">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Smb-hB-Ong" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jIW-BJ-R5M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -116,7 +144,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCz-iW-S4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="395"/>
+            <point key="canvasLocation" x="769" y="395"/>
         </scene>
     </scenes>
 </document>
