@@ -51,7 +51,7 @@ class FeedData: NSObject {
         feedQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             if objects.count > 0 {
-                
+            
                 self.feedItems = objects as [PFObject]
                 
             
