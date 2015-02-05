@@ -1,55 +1,56 @@
 //
-//  FeedTableViewController.swift
+//  VenuesTableViewController.swift
 //  SitFit
 //
-//  Created by William Judd on 2/3/15.
+//  Created by William Judd on 2/5/15.
 //  Copyright (c) 2015 William Judd. All rights reserved.
 //
 
 import UIKit
+import CoreLocation
 
-class FeedTableViewController: UITableViewController {
+var onceToken: dispatch_once_t = 0
 
+
+class VenuesTableViewController: UITableViewController, CLLocationManagerDelegate {
+
+    var lManager = CLLocationManager()
+    var foundVenues: [AnyObject] = []
     
-    // Table views always need an array. In this case we are using PFObject which is "Parse Framework Object"
-    
-    
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
-            
-       }
-    
-    func refreshFeed() {
         
-        FeedData.mainData().refreshFeedItems { () -> () in
-            self.tableView.reloadData()
-        }
-   
-    }
-    
-    
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-
-        refreshFeed()
-    }
+        lManager.requestWhenInUseAuthorization()
+        lManager.delegate = self
+        lManager.startUpdatingLocation()
+        
+        
  
     
-    @IBAction func addNewSeat(sender: AnyObject) {
-    
-        var newSeatSB = UIStoryboard(name: "NewSeat", bundle: nil)
-        var newSeatVC = newSeatSB.instantiateInitialViewController() as NewSeatViewController
-        presentViewController(newSeatVC, animated: true, completion:nil)
-        
-        
-    
     }
     
-    
-    
-    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        dispatch_once(&onceToken) { () -> Void in
+            
+            println(locations.last)
+            
+            if let location = locations.last as? CLLocation {
+                // as? is casting .last as cllocatoin
+                
+            self.foundVenues = FourSquareRequest.requestVenuesWithLocation(location)
+            self.tableView.reloadData()
+                
+                
+            }
+            
+            
+        }
+        
+        
+        lManager.stopUpdatingLocation()
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,32 +60,42 @@ class FeedTableViewController: UITableViewController {
     // MARK: - Table view data source
 
    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return FeedData.mainData().feedItems.count
-    
-    
+        return foundVenues.count
+        
     }
 
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as FeedCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("venueCell", forIndexPath: indexPath) as UITableViewCell
 
-
-        let seat = FeedData.mainData().feedItems[indexPath.row]
+        let venue = foundVenues[indexPath.row] as [String:AnyObject]
         
-        cell.seatInfo = seat
+        cell.textLabel?.text = venue["name"] as? String
         
-//        cell.textLabel?.text = seat["name"] as? String
+        
+        
         
         // Configure the cell...
-        
+
         return cell
-    
-    
     }
+
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let venue = foundVenues[indexPath.row] as [String:AnyObject]
+
+        // save the venue
+        FeedData.mainData().selectedVenue = venue
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

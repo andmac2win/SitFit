@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dal-5a-9le">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--New Seat View Controller-->
@@ -69,6 +70,20 @@
                                     <action selector="takePicture:" destination="dal-5a-9le" eventType="touchUpInside" id="iAL-An-jF2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLE-bD-g1D">
+                                <rect key="frame" x="36" y="316" width="248" height="40"/>
+                                <color key="backgroundColor" red="0.59417822350000005" green="0.73758470450000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1KV-fa-5hL"/>
+                                </constraints>
+                                <state key="normal" title="Select Venue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Smb-hB-Ong" kind="presentation" id="2mK-RM-JPx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -83,32 +98,36 @@
                             <constraint firstAttribute="trailing" secondItem="MvO-5g-IJT" secondAttribute="trailing" constant="20" id="ZWq-nQ-pUF"/>
                             <constraint firstItem="qN5-Vb-ICJ" firstAttribute="top" secondItem="xdC-Zx-65Y" secondAttribute="top" constant="240" id="Zez-qA-XpO"/>
                             <constraint firstItem="seE-07-yiR" firstAttribute="top" secondItem="C8o-bQ-9Ia" secondAttribute="bottom" constant="20" id="cXf-jX-gDt"/>
+                            <constraint firstItem="jLE-bD-g1D" firstAttribute="top" secondItem="eZB-mU-WA8" secondAttribute="bottom" constant="29" id="eOc-1H-mwC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jLE-bD-g1D" secondAttribute="trailing" constant="20" id="hvm-Zw-4Pp"/>
                             <constraint firstItem="MvO-5g-IJT" firstAttribute="top" secondItem="xdC-Zx-65Y" secondAttribute="top" constant="20" id="i10-Se-qAU"/>
                             <constraint firstItem="eZB-mU-WA8" firstAttribute="leading" secondItem="xdC-Zx-65Y" secondAttribute="leading" id="iqS-Bd-0W8"/>
                             <constraint firstItem="seE-07-yiR" firstAttribute="top" secondItem="Y3v-tq-9te" secondAttribute="bottom" constant="20" id="oeK-db-dTM"/>
                             <constraint firstAttribute="trailing" secondItem="Y3v-tq-9te" secondAttribute="trailing" constant="20" id="opd-Eq-Fay"/>
+                            <constraint firstItem="jLE-bD-g1D" firstAttribute="leading" secondItem="xdC-Zx-65Y" secondAttribute="leadingMargin" constant="20" id="v6l-os-Sq4"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="seatImageView" destination="eZB-mU-WA8" id="78c-Es-zRW"/>
                         <outlet property="seatNameField" destination="MvO-5g-IJT" id="d24-Aa-BrK"/>
+                        <outlet property="selectVenueButton" destination="jLE-bD-g1D" id="biN-qQ-r6B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9t-Q4-sVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="397" y="395"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Venues-->
         <scene sceneID="S5C-8I-itz">
             <objects>
-                <tableViewController id="14q-Hl-HrY" sceneMemberID="viewController">
+                <tableViewController id="14q-Hl-HrY" customClass="VenuesTableViewController" customModule="SitFit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="AAk-m4-VFX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fR2-bg-N5Z">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venueCell" id="fR2-bg-N5Z">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fR2-bg-N5Z" id="Zca-vF-TyY">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -120,12 +139,14 @@
                             <outlet property="delegate" destination="14q-Hl-HrY" id="cH9-dM-tbL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JKg-sN-g64"/>
+                    <navigationItem key="navigationItem" title="Venues" id="JKg-sN-g64">
+                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="MIo-MK-NJT"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cd6-2J-QQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="395"/>
+            <point key="canvasLocation" x="1282" y="395"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rWo-08-306">
@@ -144,7 +165,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCz-iW-S4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769" y="395"/>
+            <point key="canvasLocation" x="843" y="395"/>
         </scene>
     </scenes>
 </document>

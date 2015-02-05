@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D20E4D41A83B3F50098EF82 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E4D31A83B3F50098EF82 /* FeedCell.swift */; };
+		3D20E4D61A83CF3C0098EF82 /* FourSquareRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E4D51A83CF3C0098EF82 /* FourSquareRequest.swift */; };
+		3D20E4D81A83CF9B0098EF82 /* VenuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E4D71A83CF9B0098EF82 /* VenuesTableViewController.swift */; };
+		3D20E4DA1A83FAFC0098EF82 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E4D91A83FAFC0098EF82 /* MapViewController.swift */; };
+		3D20E4DC1A83FCB30098EF82 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D20E4DB1A83FCB30098EF82 /* MapKit.framework */; };
 		3DE89B551A810FAF001A55D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE89B541A810FAF001A55D3 /* AppDelegate.swift */; };
 		3DE89B571A810FAF001A55D3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE89B561A810FAF001A55D3 /* LoginViewController.swift */; };
 		3DE89B5A1A810FAF001A55D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE89B581A810FAF001A55D3 /* Main.storyboard */; };
@@ -40,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D20E4D31A83B3F50098EF82 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		3D20E4D51A83CF3C0098EF82 /* FourSquareRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourSquareRequest.swift; sourceTree = "<group>"; };
+		3D20E4D71A83CF9B0098EF82 /* VenuesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenuesTableViewController.swift; sourceTree = "<group>"; };
+		3D20E4D91A83FAFC0098EF82 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3D20E4DB1A83FCB30098EF82 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3DE89B4F1A810FAF001A55D3 /* SitFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SitFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE89B531A810FAF001A55D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DE89B541A810FAF001A55D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D20E4DC1A83FCB30098EF82 /* MapKit.framework in Frameworks */,
 				3DE89B981A81576F001A55D3 /* libsqlite3.dylib in Frameworks */,
 				3DE89B961A815756001A55D3 /* SystemConfiguration.framework in Frameworks */,
 				3DE89B941A815745001A55D3 /* MobileCoreServices.framework in Frameworks */,
@@ -163,6 +174,8 @@
 				3DE89B561A810FAF001A55D3 /* LoginViewController.swift */,
 				3DE89B7B1A813105001A55D3 /* FeedTableViewController.swift */,
 				3DE89B7D1A813145001A55D3 /* MyFeedTableViewController.swift */,
+				3D20E4D91A83FAFC0098EF82 /* MapViewController.swift */,
+				3D20E4D31A83B3F50098EF82 /* FeedCell.swift */,
 			);
 			name = "Main Feeds & Login";
 			sourceTree = "<group>";
@@ -172,6 +185,7 @@
 			children = (
 				3DE89B761A81176D001A55D3 /* NewSeat.storyboard */,
 				3DE89B7F1A8151FC001A55D3 /* NewSeatViewController.swift */,
+				3D20E4D71A83CF9B0098EF82 /* VenuesTableViewController.swift */,
 			);
 			name = "New Seat";
 			sourceTree = "<group>";
@@ -179,6 +193,7 @@
 		3DE89B811A81542C001A55D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D20E4DB1A83FCB30098EF82 /* MapKit.framework */,
 				3DE89B971A81576F001A55D3 /* libsqlite3.dylib */,
 				3DE89B951A815756001A55D3 /* SystemConfiguration.framework */,
 				3DE89B931A815745001A55D3 /* MobileCoreServices.framework */,
@@ -196,6 +211,7 @@
 		3DE89B991A815B1C001A55D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3D20E4D51A83CF3C0098EF82 /* FourSquareRequest.swift */,
 				3DE89B9A1A815B72001A55D3 /* FeedData.swift */,
 			);
 			name = Models;
@@ -303,12 +319,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D20E4D61A83CF3C0098EF82 /* FourSquareRequest.swift in Sources */,
+				3D20E4D41A83B3F50098EF82 /* FeedCell.swift in Sources */,
 				3DE89B571A810FAF001A55D3 /* LoginViewController.swift in Sources */,
+				3D20E4DA1A83FAFC0098EF82 /* MapViewController.swift in Sources */,
 				3DE89B7E1A813145001A55D3 /* MyFeedTableViewController.swift in Sources */,
 				3DE89B551A810FAF001A55D3 /* AppDelegate.swift in Sources */,
 				3DE89B9B1A815B72001A55D3 /* FeedData.swift in Sources */,
 				3DE89B801A8151FC001A55D3 /* NewSeatViewController.swift in Sources */,
 				3DE89B7C1A813105001A55D3 /* FeedTableViewController.swift in Sources */,
+				3D20E4D81A83CF9B0098EF82 /* VenuesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +541,7 @@
 				3DE89B701A810FAF001A55D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DE89B711A810FAF001A55D3 /* Build configuration list for PBXNativeTarget "SitFitTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +550,7 @@
 				3DE89B731A810FAF001A55D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
