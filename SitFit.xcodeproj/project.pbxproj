@@ -12,6 +12,8 @@
 		3D20E4D81A83CF9B0098EF82 /* VenuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E4D71A83CF9B0098EF82 /* VenuesTableViewController.swift */; };
 		3D20E4DA1A83FAFC0098EF82 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E4D91A83FAFC0098EF82 /* MapViewController.swift */; };
 		3D20E4DC1A83FCB30098EF82 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D20E4DB1A83FCB30098EF82 /* MapKit.framework */; };
+		3D20E4DF1A8505F80098EF82 /* ArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E4DE1A8505F80098EF82 /* ArrowButton.swift */; };
+		3D20E4E11A8516810098EF82 /* SeatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E4E01A8516810098EF82 /* SeatDetailViewController.swift */; };
 		3DE89B551A810FAF001A55D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE89B541A810FAF001A55D3 /* AppDelegate.swift */; };
 		3DE89B571A810FAF001A55D3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE89B561A810FAF001A55D3 /* LoginViewController.swift */; };
 		3DE89B5A1A810FAF001A55D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE89B581A810FAF001A55D3 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		3D20E4D71A83CF9B0098EF82 /* VenuesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenuesTableViewController.swift; sourceTree = "<group>"; };
 		3D20E4D91A83FAFC0098EF82 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3D20E4DB1A83FCB30098EF82 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3D20E4DE1A8505F80098EF82 /* ArrowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowButton.swift; sourceTree = "<group>"; };
+		3D20E4E01A8516810098EF82 /* SeatDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatDetailViewController.swift; sourceTree = "<group>"; };
 		3DE89B4F1A810FAF001A55D3 /* SitFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SitFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE89B531A810FAF001A55D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DE89B541A810FAF001A55D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D20E4DD1A85059B0098EF82 /* IBViews */ = {
+			isa = PBXGroup;
+			children = (
+				3D20E4DE1A8505F80098EF82 /* ArrowButton.swift */,
+			);
+			name = IBViews;
+			sourceTree = "<group>";
+		};
 		3DE89B461A810FAE001A55D3 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +141,7 @@
 		3DE89B511A810FAF001A55D3 /* SitFit */ = {
 			isa = PBXGroup;
 			children = (
+				3D20E4DD1A85059B0098EF82 /* IBViews */,
 				3DE89B991A815B1C001A55D3 /* Models */,
 				3DE89B791A81305A001A55D3 /* Main Feeds & Login */,
 				3DE89B7A1A813072001A55D3 /* New Seat */,
@@ -176,6 +189,7 @@
 				3DE89B7D1A813145001A55D3 /* MyFeedTableViewController.swift */,
 				3D20E4D91A83FAFC0098EF82 /* MapViewController.swift */,
 				3D20E4D31A83B3F50098EF82 /* FeedCell.swift */,
+				3D20E4E01A8516810098EF82 /* SeatDetailViewController.swift */,
 			);
 			name = "Main Feeds & Login";
 			sourceTree = "<group>";
@@ -324,8 +338,10 @@
 				3DE89B571A810FAF001A55D3 /* LoginViewController.swift in Sources */,
 				3D20E4DA1A83FAFC0098EF82 /* MapViewController.swift in Sources */,
 				3DE89B7E1A813145001A55D3 /* MyFeedTableViewController.swift in Sources */,
+				3D20E4DF1A8505F80098EF82 /* ArrowButton.swift in Sources */,
 				3DE89B551A810FAF001A55D3 /* AppDelegate.swift in Sources */,
 				3DE89B9B1A815B72001A55D3 /* FeedData.swift in Sources */,
+				3D20E4E11A8516810098EF82 /* SeatDetailViewController.swift in Sources */,
 				3DE89B801A8151FC001A55D3 /* NewSeatViewController.swift in Sources */,
 				3DE89B7C1A813105001A55D3 /* FeedTableViewController.swift in Sources */,
 				3D20E4D81A83CF9B0098EF82 /* VenuesTableViewController.swift in Sources */,

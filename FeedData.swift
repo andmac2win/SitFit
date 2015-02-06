@@ -13,7 +13,8 @@ let _mainData: FeedData = FeedData()
 class FeedData: NSObject {
     
     var selectedVenue: [String:AnyObject]?
-
+    var selectedSeat: PFObject?
+    
     var feedItems: [PFObject] = []
 //    var myFeedItems: [PFObject] = []
     

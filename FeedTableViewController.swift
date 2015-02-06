@@ -30,6 +30,7 @@ class FeedTableViewController: UITableViewController {
     
     
     
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -84,6 +85,16 @@ class FeedTableViewController: UITableViewController {
     
     
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        FeedData.mainData().selectedSeat = FeedData.mainData().feedItems[indexPath.row]
+        var detailVC = storyboard?.instantiateViewControllerWithIdentifier("seatDetailVC") as UIViewController
+        navigationController?.pushViewController(detailVC, animated: true)
+
+    }
+    
+
     
 
     /*
